@@ -1,1 +1,1 @@
-# -Users-ofir-Documents-Development-group-telegram-scraper
+# group-telegram-scraper
