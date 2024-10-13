@@ -1,6 +1,17 @@
 import base64
 from typing import Optional
 from pydantic import BaseModel
+import os
+import openai
+from dotenv import load_dotenv
+
+from cost_calculator import CostCalculator
+
+# Load environment variables from a .env file
+load_dotenv()
+
+# Set your OpenAI API key from the environment variable
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 class OpenAIClient:
     """Helper class to interact with OpenAI API."""
@@ -60,7 +71,7 @@ class OpenAIClient:
         # Calculate and display the prompt cost if required
         if self.show_prices:
             full_prompt = system_message + user_message
-            has_image = image_url is not None
+            has_image = image_path is not None
             prompt_cost = self.cost_calculator.calculate_prompt_cost(full_prompt, has_image=has_image)
             print(f"Prompt cost: ${prompt_cost:.6f}")
 
