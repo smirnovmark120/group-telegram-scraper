@@ -183,5 +183,7 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
-/materials/
-/extracted_text/
+# Ignore Telethon session files
+telegram_sessions/
+*.session
+*.session-journal
