@@ -53,7 +53,7 @@ class OpenAIClient:
         messages.append({"role": "user", "content": user_content})
         return messages
 
-    def _build_api_payload(self, messages, response_format: Optional[BaseModel] = None, max_tokens: Optional[int] = None):
+    def _build_api_payload(self, messages, response_format: Optional[BaseModel] = None, max_completion_tokens: Optional[int] = None):
         """Build the payload for the OpenAI API request."""
         api_payload = {
             "model": self.model,
@@ -61,8 +61,8 @@ class OpenAIClient:
         }
         if response_format:
             api_payload["response_format"] = response_format
-        if max_tokens:
-            api_payload["max_tokens"] = max_tokens
+        if max_completion_tokens:
+            api_payload["max_completion_tokens"] = max_completion_tokens
         
         return api_payload
 
@@ -103,14 +103,14 @@ class OpenAIClient:
             return None
 
     def chat(self, system_message: str, user_message: str, image_path: Optional[str] = None, 
-             response_format: Optional[BaseModel] = None, max_tokens: Optional[int] = 300):
+             response_format: Optional[BaseModel] = None, max_completion_tokens: Optional[int] = 300):
         """Main method to send a chat request to OpenAI with optional image input."""
         
         # Step 1: Prepare messages
         messages = self._prepare_messages(system_message, user_message, image_path)
 
         # Step 2: Build API payload
-        api_payload = self._build_api_payload(messages, response_format, max_tokens)
+        api_payload = self._build_api_payload(messages, response_format, max_completion_tokens)
 
         # Step 3: Make the API call
         response = self._make_api_call(api_payload)
