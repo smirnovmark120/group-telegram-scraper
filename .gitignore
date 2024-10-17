@@ -167,6 +167,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+teak-ellipse-401213-fba00a21f05d.json
 
 # Spyder project settings
 .spyderproject
