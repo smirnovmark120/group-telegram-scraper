@@ -66,7 +66,7 @@ class TelegramScraper:
 
             while True:
                 logging.info(f"Fetching batch of messages from {channel_username} (offset_id: {offset_id})")
-                messages = await self._client.get_messages(channel, limit=100, offset_id=offset_id)
+                messages = await self._client.get_messages(channel, limit=200, offset_id=offset_id)
                 
                 if not messages:
                     logging.info(f"No more messages to fetch from {channel_username}")
