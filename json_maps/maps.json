@@ -1,0 +1,480 @@
+{
+    "OpenCage": {
+        "documentation": "https://opencagedata.com/api",
+        "licenses": [
+            {
+                "name": "see attribution guide",
+                "url": "https://opencagedata.com/credits"
+            }
+        ],
+        "rate": {
+            "limit": 2500,
+            "remaining": 2497,
+            "reset": 1729641600
+        },
+        "results": [
+            {
+                "annotations": {
+                    "DMS": {
+                        "lat": "32\u00b0 5' 7.07892'' N",
+                        "lng": "34\u00b0 46' 54.50304'' E"
+                    },
+                    "MGRS": "36SXA6815751279",
+                    "Maidenhead": "KM72jc30tl",
+                    "Mercator": {
+                        "x": 3871892.977,
+                        "y": 3751818.256
+                    },
+                    "OSM": {
+                        "edit_url": "https://www.openstreetmap.org/edit?relation=1382494#map=17/32.08530/34.78181",
+                        "note_url": "https://www.openstreetmap.org/note/new#map=17/32.08530/34.78181&layers=N",
+                        "url": "https://www.openstreetmap.org/?mlat=32.08530&mlon=34.78181#map=17/32.08530/34.78181"
+                    },
+                    "UN_M49": {
+                        "regions": {
+                            "ASIA": "142",
+                            "IL": "376",
+                            "WESTERN_ASIA": "145",
+                            "WORLD": "001"
+                        },
+                        "statistical_groupings": [
+                            "MEDC"
+                        ]
+                    },
+                    "callingcode": 972,
+                    "currency": {
+                        "alternate_symbols": [
+                            "\u05e9\u05f4\u05d7",
+                            "NIS"
+                        ],
+                        "decimal_mark": ".",
+                        "html_entity": "&#x20AA;",
+                        "iso_code": "ILS",
+                        "iso_numeric": "376",
+                        "name": "Israeli New Sheqel",
+                        "smallest_denomination": 10,
+                        "subunit": "Agora",
+                        "subunit_to_unit": 100,
+                        "symbol": "\u20aa",
+                        "symbol_first": 1,
+                        "thousands_separator": ","
+                    },
+                    "flag": "\ud83c\uddee\ud83c\uddf1",
+                    "geohash": "sv8wx2zq6v6egtn1bmcd",
+                    "qibla": 155.92,
+                    "roadinfo": {
+                        "drive_on": "right",
+                        "speed_in": "km/h"
+                    },
+                    "sun": {
+                        "rise": {
+                            "apparent": 1729569060,
+                            "astronomical": 1729564140,
+                            "civil": 1729567560,
+                            "nautical": 1729565820
+                        },
+                        "set": {
+                            "apparent": 1729609200,
+                            "astronomical": 1729614060,
+                            "civil": 1729610640,
+                            "nautical": 1729612380
+                        }
+                    },
+                    "timezone": {
+                        "name": "Asia/Jerusalem",
+                        "now_in_dst": 1,
+                        "offset_sec": 10800,
+                        "offset_string": "+0300",
+                        "short_name": "IDT"
+                    },
+                    "what3words": {
+                        "words": "bottom.written.owes"
+                    },
+                    "wikidata": "Q33935"
+                },
+                "bounds": {
+                    "northeast": {
+                        "lat": 32.1469766,
+                        "lng": 34.8522617
+                    },
+                    "southwest": {
+                        "lat": 32.0293437,
+                        "lng": 34.739131
+                    }
+                },
+                "components": {
+                    "ISO_3166-1_alpha-2": "IL",
+                    "ISO_3166-1_alpha-3": "ISR",
+                    "ISO_3166-2": [
+                        "IL-TA"
+                    ],
+                    "_category": "place",
+                    "_normalized_city": "Tel-Aviv",
+                    "_type": "city",
+                    "city": "Tel-Aviv",
+                    "continent": "Asia",
+                    "country": "Israel",
+                    "country_code": "il",
+                    "state": "Tel-Aviv District",
+                    "state_district": "Tel Aviv Subdistrict"
+                },
+                "confidence": 6,
+                "formatted": "Tel-Aviv, Tel Aviv Subdistrict, Israel",
+                "geometry": {
+                    "lat": 32.0852997,
+                    "lng": 34.7818064
+                }
+            },
+            {
+                "annotations": {
+                    "DMS": {
+                        "lat": "32\u00b0 5' 44.39688'' N",
+                        "lng": "34\u00b0 48' 22.52448'' E"
+                    },
+                    "MGRS": "36SXA7044552467",
+                    "Maidenhead": "KM72jc62sx",
+                    "Mercator": {
+                        "x": 3874614.783,
+                        "y": 3753173.756
+                    },
+                    "OSM": {
+                        "edit_url": "https://www.openstreetmap.org/edit?relation=1400916#map=17/32.09567/34.80626",
+                        "note_url": "https://www.openstreetmap.org/note/new#map=17/32.09567/34.80626&layers=N",
+                        "url": "https://www.openstreetmap.org/?mlat=32.09567&mlon=34.80626#map=17/32.09567/34.80626"
+                    },
+                    "UN_M49": {
+                        "regions": {
+                            "ASIA": "142",
+                            "IL": "376",
+                            "WESTERN_ASIA": "145",
+                            "WORLD": "001"
+                        },
+                        "statistical_groupings": [
+                            "MEDC"
+                        ]
+                    },
+                    "callingcode": 972,
+                    "currency": {
+                        "alternate_symbols": [
+                            "\u05e9\u05f4\u05d7",
+                            "NIS"
+                        ],
+                        "decimal_mark": ".",
+                        "html_entity": "&#x20AA;",
+                        "iso_code": "ILS",
+                        "iso_numeric": "376",
+                        "name": "Israeli New Sheqel",
+                        "smallest_denomination": 10,
+                        "subunit": "Agora",
+                        "subunit_to_unit": 100,
+                        "symbol": "\u20aa",
+                        "symbol_first": 1,
+                        "thousands_separator": ","
+                    },
+                    "flag": "\ud83c\uddee\ud83c\uddf1",
+                    "geohash": "sv8y84c4u9f0hgm9tzt1",
+                    "qibla": 156.04,
+                    "roadinfo": {
+                        "drive_on": "right",
+                        "speed_in": "km/h"
+                    },
+                    "sun": {
+                        "rise": {
+                            "apparent": 1729569060,
+                            "astronomical": 1729564140,
+                            "civil": 1729567560,
+                            "nautical": 1729565820
+                        },
+                        "set": {
+                            "apparent": 1729609140,
+                            "astronomical": 1729614060,
+                            "civil": 1729610640,
+                            "nautical": 1729612380
+                        }
+                    },
+                    "timezone": {
+                        "name": "Asia/Jerusalem",
+                        "now_in_dst": 1,
+                        "offset_sec": 10800,
+                        "offset_string": "+0300",
+                        "short_name": "IDT"
+                    },
+                    "what3words": {
+                        "words": "performs.penny.loaf"
+                    },
+                    "wikidata": "Q192811"
+                },
+                "bounds": {
+                    "northeast": {
+                        "lat": 32.2029179,
+                        "lng": 34.8757412
+                    },
+                    "southwest": {
+                        "lat": 31.9887223,
+                        "lng": 34.7287471
+                    }
+                },
+                "components": {
+                    "ISO_3166-1_alpha-2": "IL",
+                    "ISO_3166-1_alpha-3": "ISR",
+                    "ISO_3166-2": [
+                        "IL-TA"
+                    ],
+                    "_category": "place",
+                    "_type": "state",
+                    "continent": "Asia",
+                    "country": "Israel",
+                    "country_code": "il",
+                    "state": "Tel-Aviv District"
+                },
+                "confidence": 5,
+                "formatted": "Tel-Aviv District, Israel",
+                "geometry": {
+                    "lat": 32.0956658,
+                    "lng": 34.8062568
+                }
+            }
+        ],
+        "status": {
+            "code": 200,
+            "message": "OK"
+        },
+        "stay_informed": {
+            "blog": "https://blog.opencagedata.com",
+            "mastodon": "https://en.osm.town/@opencage"
+        },
+        "thanks": "For using an OpenCage API",
+        "timestamp": {
+            "created_http": "Tue, 22 Oct 2024 18:28:41 GMT",
+            "created_unix": 1729621721
+        },
+        "total_results": 2
+    },
+    "Nominatim": [
+        {
+            "place_id": 374477851,
+            "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+            "osm_type": "relation",
+            "osm_id": 1382494,
+            "lat": "32.0852997",
+            "lon": "34.7818064",
+            "class": "boundary",
+            "type": "administrative",
+            "place_rank": 16,
+            "importance": 0.7098102548679779,
+            "addresstype": "city",
+            "name": "\u05ea\u05dc\u05be\u05d0\u05d1\u05d9\u05d1\u2013\u05d9\u05e4\u05d5",
+            "display_name": "\u05ea\u05dc\u05be\u05d0\u05d1\u05d9\u05d1\u2013\u05d9\u05e4\u05d5, \u05e0\u05e4\u05ea \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1, \u05de\u05d7\u05d5\u05d6 \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1, \u05d9\u05e9\u05e8\u05d0\u05dc",
+            "boundingbox": [
+                "32.0293437",
+                "32.1469766",
+                "34.7391310",
+                "34.8522617"
+            ]
+        },
+        {
+            "place_id": 388622658,
+            "licence": "Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+            "osm_type": "relation",
+            "osm_id": 1400916,
+            "lat": "32.0956658",
+            "lon": "34.80625679878922",
+            "class": "boundary",
+            "type": "administrative",
+            "place_rank": 8,
+            "importance": 0.513669182085014,
+            "addresstype": "state",
+            "name": "\u05de\u05d7\u05d5\u05d6 \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1",
+            "display_name": "\u05de\u05d7\u05d5\u05d6 \u05ea\u05dc \u05d0\u05d1\u05d9\u05d1, \u05d9\u05e9\u05e8\u05d0\u05dc",
+            "boundingbox": [
+                "31.9887223",
+                "32.2029179",
+                "34.7287471",
+                "34.8757412"
+            ]
+        }
+    ],
+    "LocationIQ": [
+        {
+            "place_id": "343231507",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "relation",
+            "osm_id": "1382494",
+            "boundingbox": [
+                "32.0293437",
+                "32.1469766",
+                "34.739131",
+                "34.8522617"
+            ],
+            "lat": "32.0852997",
+            "lon": "34.7818064",
+            "display_name": "Tel-Aviv, Israel",
+            "class": "boundary",
+            "type": "administrative",
+            "importance": 0.8499881947160821,
+            "icon": "https://locationiq.org/static/images/mapicons/poi_boundary_administrative.p.20.png"
+        },
+        {
+            "place_id": "343397422",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "relation",
+            "osm_id": "2731722",
+            "boundingbox": [
+                "32.0293437",
+                "32.1460721",
+                "34.7424189",
+                "34.8522617"
+            ],
+            "lat": "32.08771715",
+            "lon": "34.78495258844318",
+            "display_name": "Tel Aviv, The New North, Tel-Aviv, Israel",
+            "class": "landuse",
+            "type": "residential",
+            "importance": 0.4000099999999999
+        },
+        {
+            "place_id": "216200772",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "way",
+            "osm_id": "397173380",
+            "boundingbox": [
+                "11.4826142",
+                "11.4849009",
+                "-85.6676009",
+                "-85.664964"
+            ],
+            "lat": "11.484318850000001",
+            "lon": "-85.66642573336537",
+            "display_name": "Tel Aviv (Secadoras de tabaco), Moyagalpa (Muncipio), Rivas, 48700, Nicaragua",
+            "class": "landuse",
+            "type": "commercial",
+            "importance": 0.4000099999999999
+        },
+        {
+            "place_id": "307979900",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "way",
+            "osm_id": "990083430",
+            "boundingbox": [
+                "32.8245669",
+                "32.8248374",
+                "34.9889728",
+                "34.9898121"
+            ],
+            "lat": "32.8247044",
+            "lon": "34.9893855",
+            "display_name": "Tel Aviv, German Colony, Downtown District, Haifa, Haifa Subdistrict, Haifa District, 3341231, Israel",
+            "class": "highway",
+            "type": "residential",
+            "importance": 0.30000999999999994
+        },
+        {
+            "place_id": "171019359",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "way",
+            "osm_id": "200727264",
+            "boundingbox": [
+                "32.8249014",
+                "32.8264647",
+                "34.9840637",
+                "34.988673"
+            ],
+            "lat": "32.8256528",
+            "lon": "34.9865277",
+            "display_name": "Tel Aviv, Kiryat Eliyahu, West Haifa District, Haifa, Haifa Subdistrict, Haifa District, 3551319, Israel",
+            "class": "highway",
+            "type": "residential",
+            "importance": 0.30000999999999994
+        },
+        {
+            "place_id": "137968627",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "way",
+            "osm_id": "59429754",
+            "boundingbox": [
+                "31.9249086",
+                "31.9282901",
+                "34.7959408",
+                "34.7961232"
+            ],
+            "lat": "31.9266163",
+            "lon": "34.7960407",
+            "display_name": "Tel Aviv, \u05de\u05e2\u05e8\u05d1 \u05d5\u05ea\u05d9\u05e7, Kfar Aharon, Nes Ziona, Rehovot Subdistrict, 7408022, Israel",
+            "class": "highway",
+            "type": "residential",
+            "importance": 0.30000999999999994
+        },
+        {
+            "place_id": "129272302",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "way",
+            "osm_id": "28045088",
+            "boundingbox": [
+                "14.4866464",
+                "14.4877146",
+                "121.0038855",
+                "121.0084182"
+            ],
+            "lat": "14.4873833",
+            "lon": "121.005305",
+            "display_name": "Tel Aviv, Multinational Village, Moonwalk, Para\u00f1aque, Southern Manila District, Metro Manila, 1700, Philippines",
+            "class": "highway",
+            "type": "residential",
+            "importance": 0.30000999999999994
+        },
+        {
+            "place_id": "159505400",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "way",
+            "osm_id": "156275882",
+            "boundingbox": [
+                "14.4935809",
+                "14.4936343",
+                "121.0158954",
+                "121.01678"
+            ],
+            "lat": "14.4936126",
+            "lon": "121.0162707",
+            "display_name": "Tel Aviv, Merville Park, Para\u00f1aque, Southern Manila District, Metro Manila, 1700, Philippines",
+            "class": "highway",
+            "type": "residential",
+            "importance": 0.30000999999999994
+        },
+        {
+            "place_id": "321458100",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "way",
+            "osm_id": "1089513235",
+            "boundingbox": [
+                "32.9673578",
+                "32.9676777",
+                "35.5385214",
+                "35.5389407"
+            ],
+            "lat": "32.967397",
+            "lon": "35.5385834",
+            "display_name": "Tel Aviv, Rosh Pina, Safed Subdistrict, North District, 1201002, Israel",
+            "class": "highway",
+            "type": "residential",
+            "importance": 0.30000999999999994
+        },
+        {
+            "place_id": "137247998",
+            "licence": "https://locationiq.com/attribution",
+            "osm_type": "way",
+            "osm_id": "55700286",
+            "boundingbox": [
+                "-34.6504198",
+                "-34.6385044",
+                "-58.7143312",
+                "-58.6999254"
+            ],
+            "lat": "-34.6445222",
+            "lon": "-58.7070402",
+            "display_name": "Tel Aviv, Villa Reichembach, Ituzaing\u00f3, Partido de Ituzaing\u00f3, Buenos Aires, 1718, Argentina",
+            "class": "highway",
+            "type": "residential",
+            "importance": 0.30000999999999994
+        }
+    ]
+}

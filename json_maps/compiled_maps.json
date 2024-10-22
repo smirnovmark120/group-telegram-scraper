@@ -1,0 +1,655 @@
+{
+    "OpenCage": [
+        {
+            "index": 0,
+            "lat": 31.528902,
+            "lon": 35.0944873,
+            "DMS_lat": "31° 31' 44.04720'' N",
+            "DMS_lon": "35° 5' 40.15428'' E",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=31.52890&mlon=35.09449#map=16/31.52890/35.09449",
+            "wikidata": "Q168225",
+            "wikidata_aliases": {
+                "ar": [
+                    "حبرون",
+                    "هيبرون"
+                ],
+                "he": [
+                    "אלחליל",
+                    "אל חליל",
+                    "אל-ח'ליל",
+                    "חברן"
+                ],
+                "en": [
+                    "Al Khalil"
+                ]
+            },
+            "boundingbox": [
+                "31.4955154",
+                "31.5650355",
+                "35.0343316",
+                "35.1220773"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Hebron",
+                "_type": "city",
+                "city": "Hebron",
+                "continent": "Asia",
+                "country": "Palestinian Territory",
+                "country_code": "ps",
+                "state": null,
+                "state_district": null
+            },
+            "importance": 0.7
+        },
+        {
+            "index": 1,
+            "lat": 31.5304303,
+            "lon": 35.0879406,
+            "DMS_lat": "31° 31' 49.54908'' N",
+            "DMS_lon": "35° 5' 16.58616'' E",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=31.53043&mlon=35.08794#map=16/31.53043/35.08794",
+            "wikidata": "Q168225",
+            "wikidata_aliases": {
+                "ar": [
+                    "حبرون",
+                    "هيبرون"
+                ],
+                "he": [
+                    "אלחליל",
+                    "אל חליל",
+                    "אל-ח'ליל",
+                    "חברן"
+                ],
+                "en": [
+                    "Al Khalil"
+                ]
+            },
+            "boundingbox": [
+                "31.4964371",
+                "31.5649922",
+                "35.057114",
+                "35.1275458"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Hebron",
+                "_type": "neighbourhood",
+                "city": "Hebron",
+                "continent": "Asia",
+                "country": "Palestinian Territory",
+                "country_code": "ps",
+                "state": null,
+                "state_district": null
+            },
+            "importance": 0.7
+        },
+        {
+            "index": 2,
+            "lat": 42.4716853,
+            "lon": -88.432318,
+            "DMS_lat": "42° 28' 18.06708'' N",
+            "DMS_lon": "88° 25' 56.34480'' W",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=42.47169&mlon=-88.43232#map=16/42.47169/-88.43232",
+            "wikidata": "Q2155823",
+            "wikidata_aliases": {
+                "en": [
+                    "Hebron, IL"
+                ]
+            },
+            "boundingbox": [
+                "42.448934",
+                "42.48134",
+                "-88.45096",
+                "-88.417585"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Hebron",
+                "_type": "village",
+                "city": null,
+                "continent": "North America",
+                "country": "United States",
+                "country_code": "us",
+                "state": "Illinois",
+                "state_district": null
+            },
+            "importance": 0.7
+        },
+        {
+            "index": 3,
+            "lat": 43.6939614,
+            "lon": -71.8056359,
+            "DMS_lat": "43° 41' 38.26104'' N",
+            "DMS_lon": "71° 48' 20.28924'' W",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=43.69396&mlon=-71.80564#map=16/43.69396/-71.80564",
+            "wikidata": "Q586964",
+            "wikidata_aliases": {
+                "en": [
+                    "Hebron, New Hampshire",
+                    "Hebron NH",
+                    "Hebron N.H.",
+                    "Hebron, NH"
+                ]
+            },
+            "boundingbox": [
+                "43.6568692",
+                "43.7407507",
+                "-71.8481165",
+                "-71.7339181"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Hebron",
+                "_type": "village",
+                "city": null,
+                "continent": "North America",
+                "country": "United States",
+                "country_code": "us",
+                "state": "New Hampshire",
+                "state_district": null
+            },
+            "importance": 0.7
+        },
+        {
+            "index": 4,
+            "lat": 41.6578767,
+            "lon": -72.3659161,
+            "DMS_lat": "41° 39' 28.35612'' N",
+            "DMS_lon": "72° 21' 57.29796'' W",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=41.65788&mlon=-72.36592#map=16/41.65788/-72.36592",
+            "wikidata": "Q1484910",
+            "wikidata_aliases": {
+                "en": [
+                    "Hebron, Connecticut",
+                    "Hebron, CT"
+                ]
+            },
+            "boundingbox": [
+                "41.5887035",
+                "41.7319685",
+                "-72.4602194",
+                "-72.3243552"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Hebron",
+                "_type": "city",
+                "city": null,
+                "continent": "North America",
+                "country": "United States",
+                "country_code": "us",
+                "state": "Connecticut",
+                "state_district": null
+            },
+            "importance": 0.6
+        },
+        {
+            "index": 5,
+            "lat": 44.1971013,
+            "lon": -70.4062034,
+            "DMS_lat": "44° 11' 49.56468'' N",
+            "DMS_lon": "70° 24' 22.33224'' W",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=44.19710&mlon=-70.40620#map=16/44.19710/-70.40620",
+            "wikidata": "Q3447361",
+            "wikidata_aliases": {
+                "en": [
+                    "Hebron, ME"
+                ]
+            },
+            "boundingbox": [
+                "44.1535009",
+                "44.251272",
+                "-70.4411372",
+                "-70.3144932"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Hebron",
+                "_type": "city",
+                "city": null,
+                "continent": "North America",
+                "country": "United States",
+                "country_code": "us",
+                "state": "Maine",
+                "state_district": null
+            },
+            "importance": 0.6
+        },
+        {
+            "index": 6,
+            "lat": 43.287778,
+            "lon": -73.334167,
+            "DMS_lat": "43° 17' 16.00080'' N",
+            "DMS_lon": "73° 20' 3.00120'' W",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=43.28778&mlon=-73.33417#map=16/43.28778/-73.33417",
+            "wikidata": "Q3708919",
+            "wikidata_aliases": {
+                "en": [
+                    "Hebron, New York",
+                    "Hebron, NY"
+                ]
+            },
+            "boundingbox": [
+                "43.217212",
+                "43.352968",
+                "-73.410437",
+                "-73.253192"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Town of Hebron",
+                "_type": "municipality",
+                "city": null,
+                "continent": "North America",
+                "country": "United States",
+                "country_code": "us",
+                "state": "New York",
+                "state_district": null
+            },
+            "importance": 0.6
+        },
+        {
+            "index": 7,
+            "lat": 40.166393,
+            "lon": -97.585875,
+            "DMS_lat": "40° 9' 59.01480'' N",
+            "DMS_lon": "97° 35' 9.15000'' W",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=40.16639&mlon=-97.58588#map=16/40.16639/-97.58588",
+            "wikidata": "Q960489",
+            "wikidata_aliases": {
+                "en": [
+                    "Hebron, Nebraska",
+                    "Hebron, NE"
+                ]
+            },
+            "boundingbox": [
+                "40.157905",
+                "40.178875",
+                "-97.59968",
+                "-97.575394"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Hebron",
+                "_type": "city",
+                "city": "Hebron",
+                "continent": "North America",
+                "country": "United States",
+                "country_code": "us",
+                "state": "Nebraska",
+                "state_district": null
+            },
+            "importance": 0.7
+        },
+        {
+            "index": 8,
+            "lat": 33.0254878,
+            "lon": -96.8563223,
+            "DMS_lat": "33° 1' 31.75608'' N",
+            "DMS_lon": "96° 51' 22.76028'' W",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=33.02549&mlon=-96.85632#map=16/33.02549/-96.85632",
+            "wikidata": "Q981832",
+            "wikidata_aliases": {
+                "en": [
+                    "Hebron, TX"
+                ]
+            },
+            "boundingbox": [
+                "33.0190821",
+                "33.0468072",
+                "-96.8735103",
+                "-96.835336"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Hebron",
+                "_type": "city",
+                "city": null,
+                "continent": "North America",
+                "country": "United States",
+                "country_code": "us",
+                "state": "Texas",
+                "state_district": null
+            },
+            "importance": 0.7
+        },
+        {
+            "index": 9,
+            "lat": 46.9005626,
+            "lon": -102.0454416,
+            "DMS_lat": "46° 54' 2.02536'' N",
+            "DMS_lon": "102° 2' 43.58976'' W",
+            "OSM_url": "https://www.openstreetmap.org/?mlat=46.90056&mlon=-102.04544#map=16/46.90056/-102.04544",
+            "wikidata": "Q28131",
+            "wikidata_aliases": {
+                "en": [
+                    "Hebron, North Dakota",
+                    "Hebron, ND"
+                ]
+            },
+            "boundingbox": [
+                "46.891402",
+                "46.913189",
+                "-102.0549476",
+                "-102.033714"
+            ],
+            "components": {
+                "_category": "place",
+                "_normalized_city": "Hebron",
+                "_type": "city",
+                "city": "Hebron",
+                "continent": "North America",
+                "country": "United States",
+                "country_code": "us",
+                "state": "North Dakota",
+                "state_district": null
+            },
+            "importance": 0.7
+        }
+    ],
+    "Nominatim": [
+        {
+            "index": 0,
+            "lat": "42.4716853",
+            "lon": "-88.432318",
+            "addresstype": "village",
+            "name": "Hebron",
+            "display_name": "Hebron, McHenry County, Illinois, United States",
+            "boundingbox": [
+                "42.4489340",
+                "42.4813400",
+                "-88.4509600",
+                "-88.4175850"
+            ],
+            "importance": 0.43211794055432584
+        },
+        {
+            "index": 1,
+            "lat": "41.6578767",
+            "lon": "-72.3659161",
+            "addresstype": "town",
+            "name": "Hebron",
+            "display_name": "Hebron, Capitol Planning Region, Connecticut, United States",
+            "boundingbox": [
+                "41.5887035",
+                "41.7319685",
+                "-72.4602194",
+                "-72.3243552"
+            ],
+            "importance": 0.43004739181231927
+        },
+        {
+            "index": 2,
+            "lat": "44.1971013",
+            "lon": "-70.4062034",
+            "addresstype": "town",
+            "name": "Hebron",
+            "display_name": "Hebron, Oxford County, Maine, 04238, United States",
+            "boundingbox": [
+                "44.1535009",
+                "44.2512720",
+                "-70.4411372",
+                "-70.3144932"
+            ],
+            "importance": 0.4189900278809485
+        },
+        {
+            "index": 3,
+            "lat": "43.6939614",
+            "lon": "-71.8056359",
+            "addresstype": "village",
+            "name": "Hebron",
+            "display_name": "Hebron, Grafton County, New Hampshire, 03241, United States",
+            "boundingbox": [
+                "43.6568692",
+                "43.7407507",
+                "-71.8481165",
+                "-71.7339181"
+            ],
+            "importance": 0.4047197777419151
+        },
+        {
+            "index": 4,
+            "lat": "43.287778",
+            "lon": "-73.334167",
+            "addresstype": "municipality",
+            "name": "Town of Hebron",
+            "display_name": "Town of Hebron, Washington County, New York, United States",
+            "boundingbox": [
+                "43.2172120",
+                "43.3529680",
+                "-73.4104370",
+                "-73.2531920"
+            ],
+            "importance": 0.3921686892957473
+        },
+        {
+            "index": 5,
+            "lat": "46.9005626",
+            "lon": "-102.0454416",
+            "addresstype": "city",
+            "name": "Hebron",
+            "display_name": "Hebron, Morton County, North Dakota, 58638, United States",
+            "boundingbox": [
+                "46.8914020",
+                "46.9131890",
+                "-102.0549476",
+                "-102.0337140"
+            ],
+            "importance": 0.38399952086001105
+        },
+        {
+            "index": 6,
+            "lat": "40.166393",
+            "lon": "-97.585875",
+            "addresstype": "city",
+            "name": "Hebron",
+            "display_name": "Hebron, Thayer County, Nebraska, 68370, United States",
+            "boundingbox": [
+                "40.1579050",
+                "40.1788750",
+                "-97.5996800",
+                "-97.5753940"
+            ],
+            "importance": 0.37003396550720363
+        },
+        {
+            "index": 7,
+            "lat": "55.19719695",
+            "lon": "-1.712178924075404",
+            "addresstype": "suburb",
+            "name": "Hebron",
+            "display_name": "Hebron, Northumberland, England, United Kingdom",
+            "boundingbox": [
+                "55.1734030",
+                "55.2210146",
+                "-1.7557643",
+                "-1.6600839"
+            ],
+            "importance": 0.36763302028417766
+        },
+        {
+            "index": 8,
+            "lat": "39.9617305",
+            "lon": "-82.4912676",
+            "addresstype": "village",
+            "name": "Hebron",
+            "display_name": "Hebron, Union Township, Licking County, Ohio, 43025, United States",
+            "boundingbox": [
+                "39.9482010",
+                "39.9900830",
+                "-82.5115290",
+                "-82.4676970"
+            ],
+            "importance": 0.34662169301918117
+        },
+        {
+            "index": 9,
+            "lat": "38.4200703",
+            "lon": "-75.6877222",
+            "addresstype": "town",
+            "name": "Hebron",
+            "display_name": "Hebron, Wicomico County, Maryland, United States",
+            "boundingbox": [
+                "38.4107160",
+                "38.4366250",
+                "-75.6978870",
+                "-75.6743649"
+            ],
+            "importance": 0.3203958451676493
+        }
+    ],
+    "LocationIQ": [
+        {
+            "index": 0,
+            "lat": "31.530430250000002",
+            "lon": "35.08794057804634",
+            "boundingbox": [
+                "31.4964371",
+                "31.5649922",
+                "35.057114",
+                "35.1275458"
+            ],
+            "display_name": "Al-Khalil, مربعة سبتة, Hebron, Area H1, West Bank, 150, Palestinian Territory",
+            "type": "residential",
+            "importance": 0.6763473125242285,
+            "class": "landuse"
+        },
+        {
+            "index": 1,
+            "lat": "31.528902",
+            "lon": "35.0944873",
+            "boundingbox": [
+                "31.4955154",
+                "31.5650355",
+                "35.0343316",
+                "35.1220773"
+            ],
+            "display_name": "Hebron, Area H1, West Bank, 150, Palestinian Territory",
+            "type": "administrative",
+            "importance": 0.6763473125242285,
+            "class": "boundary"
+        },
+        {
+            "index": 2,
+            "lat": "42.4716853",
+            "lon": "-88.432318",
+            "boundingbox": [
+                "42.448934",
+                "42.48134",
+                "-88.45096",
+                "-88.417585"
+            ],
+            "display_name": "Hebron, McHenry County, Illinois, 60034, USA",
+            "type": "administrative",
+            "importance": 0.5421179405543258,
+            "class": "boundary"
+        },
+        {
+            "index": 3,
+            "lat": "43.6939614",
+            "lon": "-71.8056359",
+            "boundingbox": [
+                "43.6568692",
+                "43.7407507",
+                "-71.8481165",
+                "-71.7339181"
+            ],
+            "display_name": "Hebron, Grafton County, New Hampshire, 03241, USA",
+            "type": "administrative",
+            "importance": 0.5147197777419151,
+            "class": "boundary"
+        },
+        {
+            "index": 4,
+            "lat": "44.1971013",
+            "lon": "-70.4062034",
+            "boundingbox": [
+                "44.1535009",
+                "44.251272",
+                "-70.4411372",
+                "-70.3144932"
+            ],
+            "display_name": "Hebron, Oxford County, Maine, 04238, USA",
+            "type": "administrative",
+            "importance": 0.49684459825380756,
+            "class": "boundary"
+        },
+        {
+            "index": 5,
+            "lat": "46.9005626",
+            "lon": "-102.0454416",
+            "boundingbox": [
+                "46.891402",
+                "46.913189",
+                "-102.0549476",
+                "-102.033714"
+            ],
+            "display_name": "Hebron, Morton County, North Dakota, 58638, USA",
+            "type": "administrative",
+            "importance": 0.4939995208600111,
+            "class": "boundary"
+        },
+        {
+            "index": 6,
+            "lat": "43.287778",
+            "lon": "-73.334167",
+            "boundingbox": [
+                "43.217212",
+                "43.352968",
+                "-73.410437",
+                "-73.253192"
+            ],
+            "display_name": "Town of Hebron, Washington County, New York, 12832, USA",
+            "type": "administrative",
+            "importance": 0.4921686892957473,
+            "class": "boundary"
+        },
+        {
+            "index": 7,
+            "lat": "40.166393",
+            "lon": "-97.585875",
+            "boundingbox": [
+                "40.157905",
+                "40.178875",
+                "-97.59968",
+                "-97.575394"
+            ],
+            "display_name": "Hebron, Thayer County, Nebraska, 68370, USA",
+            "type": "administrative",
+            "importance": 0.4800339655072037,
+            "class": "boundary"
+        },
+        {
+            "index": 8,
+            "lat": "33.0254878",
+            "lon": "-96.8563223",
+            "boundingbox": [
+                "33.0190821",
+                "33.0468072",
+                "-96.8735103",
+                "-96.835336"
+            ],
+            "display_name": "Hebron, Denton County, Texas, 75010, USA",
+            "type": "administrative",
+            "importance": 0.4600099999999999,
+            "class": "boundary"
+        },
+        {
+            "index": 9,
+            "lat": "41.6578767",
+            "lon": "-72.3659161",
+            "boundingbox": [
+                "41.5887035",
+                "41.7319685",
+                "-72.4602194",
+                "-72.3243552"
+            ],
+            "display_name": "Hebron, Capitol Planning Region, Connecticut, 06248, USA",
+            "type": "administrative",
+            "importance": 0.4600099999999999,
+            "class": "boundary"
+        }
+    ]
+}
