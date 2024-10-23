@@ -1,6 +1,8 @@
 import requests
 import json
 import logging
+import aiohttp
+import asyncio
 from timer_meta import TimerMeta
 
 # Configure logging
@@ -11,9 +13,9 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
     def __init__(self, data):
         self.data = data
 
-    def fetch_wikidata_aliases(self, wikidata_id):
+    async def fetch_wikidata_aliases(self, wikidata_id):
         """
-        Fetch labels, descriptions, and aliases from Wikidata based on the wikidata ID.
+        Fetch labels, descriptions, and aliases from Wikidata based on the wikidata ID asynchronously.
         """
         if not wikidata_id:
             return None
@@ -25,38 +27,39 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
             f"&props=labels|descriptions|aliases&languages=en|ar|he&format=json"
         )
         try:
-            response = requests.get(url)
-            response.raise_for_status()
-            result = response.json()
-            entity_data = result.get("entities", {}).get(wikidata_id, {})
+            async with aiohttp.ClientSession() as session:
+                async with session.get(url) as response:
+                    response.raise_for_status()
+                    result = await response.json()
+                    entity_data = result.get("entities", {}).get(wikidata_id, {})
 
-            # Extract labels, descriptions, and aliases
-            labels_data = entity_data.get("labels", {})
-            descriptions_data = entity_data.get("descriptions", {})
-            aliases_data = entity_data.get("aliases", {})
+                    # Extract labels, descriptions, and aliases
+                    labels_data = entity_data.get("labels", {})
+                    descriptions_data = entity_data.get("descriptions", {})
+                    aliases_data = entity_data.get("aliases", {})
 
-            # Prepare the data structure
-            data = {}
-            for lang in ['en', 'ar', 'he']:
-                data[lang] = {
-                    'label': labels_data.get(lang, {}).get('value'),
-                    'description': descriptions_data.get(lang, {}).get('value'),
-                    'aliases': [alias['value'] for alias in aliases_data.get(lang, [])]
-                }
+                    # Prepare the data structure
+                    data = {}
+                    for lang in ['en', 'ar', 'he']:
+                        data[lang] = {
+                            'label': labels_data.get(lang, {}).get('value'),
+                            'description': descriptions_data.get(lang, {}).get('value'),
+                            'aliases': [alias['value'] for alias in aliases_data.get(lang, [])]
+                        }
 
-            return data
-        except requests.exceptions.RequestException as e:
+                    return data
+        except aiohttp.ClientError as e:
             logger.error(f"Error fetching data for Wikidata ID {wikidata_id}: {e}")
             return None
         except ValueError as e:
             logger.error(f"Error parsing JSON response for Wikidata ID {wikidata_id}: {e}")
             return None
 
-
-    def extract_opencage_data(self):
+    async def extract_opencage_data(self):
         opencage_results = self.data.get("OpenCage", {}).get("results", [])
         opencage_data = []
-        
+        tasks = []
+
         for index, result in enumerate(opencage_results):
             try:
                 annotations = result.get("annotations", {})
@@ -65,8 +68,25 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
                 geometry = result.get("geometry", {})
                 wikidata_id = annotations.get("wikidata")
 
-                # Fetch aliases from Wikidata
-                wikidata_aliases = self.fetch_wikidata_aliases(wikidata_id)
+                # Create a task for each wikidata fetch call
+                if wikidata_id:
+                    tasks.append(self.fetch_wikidata_aliases(wikidata_id))
+                else:
+                    tasks.append(None)
+            except Exception as e:
+                logger.error(f"Error processing OpenCage result at index {index}: {e}")
+                tasks.append(None)
+
+        # Fetch all aliases concurrently
+        wikidata_aliases_results = await asyncio.gather(*tasks)
+
+        for index, result in enumerate(opencage_results):
+            try:
+                annotations = result.get("annotations", {})
+                bounds = result.get("bounds", {})
+                components = result.get("components", {})
+                geometry = result.get("geometry", {})
+                wikidata_aliases = wikidata_aliases_results[index]
 
                 # Handle missing fields gracefully
                 def get_component(field):
@@ -91,7 +111,7 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
                     "DMS_lat": annotations.get("DMS", {}).get("lat"),
                     "DMS_lon": annotations.get("DMS", {}).get("lng"),  # Renamed 'DMS_lng' to 'DMS_lon'
                     "OSM_url": annotations.get("OSM", {}).get("url"),
-                    "wikidata": wikidata_id,
+                    "wikidata": annotations.get("wikidata"),
                     "wikidata_aliases": wikidata_aliases,
                     "boundingbox": boundingbox,
                     "components": {
@@ -111,7 +131,7 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
             except Exception as e:
                 logger.error(f"Error processing OpenCage result at index {index}: {e}")
                 continue  # Skip this result and proceed to the next
-        
+
         return opencage_data
 
     def extract_nominatim_data(self):
@@ -158,12 +178,17 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
         
         return locationiq_data
 
-    def extract_all_data(self):
+    async def extract_all_data(self):
         extracted_data = {
-            "OpenCage": self.extract_opencage_data(),
+            "OpenCage": await self.extract_opencage_data(),
             "Nominatim": self.extract_nominatim_data(),
             "LocationIQ": self.extract_locationiq_data()
         }
 
         # Convert the extracted data to a JSON string with UTF-8 encoding
         return json.dumps(extracted_data, indent=4, ensure_ascii=False)
+
+# # Example usage
+# def run_geocode_extractor(data):
+#     extractor = GeocodeDataExtractor(data)
+#     return asyncio.run(extractor.extract_all_data())

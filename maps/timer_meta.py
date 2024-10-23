@@ -2,7 +2,7 @@ import time
 from functools import wraps
 
 # Define a threshold for "too long" in seconds (e.g., 0.1 seconds)
-TIME_THRESHOLD = 0.1
+TIME_THRESHOLD = 0.01
 
 def timer_decorator(func):
     @wraps(func)
