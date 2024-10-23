@@ -124,7 +124,7 @@ class GeoDataFilter(metaclass=TimerMeta):
             return None  # No valid results found
 
         # Calculate average distance between all the highest importance points
-        coordinates = [(result["lat"], result["lon"]) for result in highest_importance_results]
+        coordinates = [(result["lat"], result["lon"]) for result in highest_importance_results if result["lat"] and result["lon"]]
         avg_distance = self.calculate_avg_distance(coordinates)
 
         # Rule 1: If average distance is below 5 km, return the OpenCage result with the highest importance
@@ -152,4 +152,4 @@ class GeoDataFilter(metaclass=TimerMeta):
             "lon": best_result["lon"],
             "wikidata_aliases": best_result["wikidata_aliases"],
             "importance": best_result["importance"]
-        }
+        } or None  # Return None if no results
