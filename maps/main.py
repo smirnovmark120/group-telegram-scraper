@@ -26,8 +26,8 @@ geocoder = MultiGeocoder()
 
 # Processing function for a single place
 async def process_place(place):
-    print(f"\nProcessing place: {place}")  # Debug: indicate current place being processed
-    
+    print(f"\nProcessing place: {place}", flush=True)  # Debug: indicate current place being processed
+
     # Get geocoding data for the place
     all_results = await geocoder.get_all_coordinates(place)        
     parsed_json_data = json.loads(all_results)
@@ -45,10 +45,10 @@ async def process_place(place):
     if filtered_results:
         # Add the NER word (place) to the result dictionary
         filtered_results["ner_word"] = place  # Attach the NER word to each result
-        print(f"Appending filtered results with NER word: {filtered_results}")  # Debug
+        print(f"Appending filtered results with NER word: {filtered_results}", flush=True)
         return filtered_results
     else:
-        print(f"No significant results found for: {place}")  # Debug: when no significant results
+        print(f"No significant results found for: {place}", flush=True)  # Debug: when no significant results
         return None
 
 # Main function to process all places concurrently
