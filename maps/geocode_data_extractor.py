@@ -20,7 +20,6 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
         if not wikidata_id:
             return None
 
-        # API request to Wikidata to fetch labels, descriptions, and aliases
         url = (
             f"https://www.wikidata.org/w/api.php?"
             f"action=wbgetentities&ids={wikidata_id}"
@@ -33,12 +32,10 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
                     result = await response.json()
                     entity_data = result.get("entities", {}).get(wikidata_id, {})
 
-                    # Extract labels, descriptions, and aliases
                     labels_data = entity_data.get("labels", {})
                     descriptions_data = entity_data.get("descriptions", {})
                     aliases_data = entity_data.get("aliases", {})
 
-                    # Prepare the data structure
                     data = {}
                     for lang in ['en', 'ar', 'he']:
                         data[lang] = {
@@ -56,8 +53,19 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
             return None
 
     async def extract_opencage_data(self):
-        opencage_results = self.data.get("OpenCage", {}).get("results", [])
-        opencage_data = []
+        opencage_data = self.data.get("OpenCage", {})
+        
+        # Check for errors or did not find cases
+        if opencage_data.get("status", {}).get("code") != 200:
+            logger.error(f"OpenCage error: {opencage_data.get('status', {}).get('message', 'Unknown error')}")
+            return []
+
+        if opencage_data.get("total_results", 0) == 0:
+            logger.warning("OpenCage did not find the place")
+            return [{"message": "did not find place"}]
+
+        opencage_results = opencage_data.get("results", [])
+        extracted_data = []
         tasks = []
 
         for index, result in enumerate(opencage_results):
@@ -68,16 +76,14 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
                 geometry = result.get("geometry", {})
                 wikidata_id = annotations.get("wikidata")
 
-                # If there is a wikidata_id, create a task, otherwise use asyncio.sleep(0) as a placeholder
                 if wikidata_id:
                     tasks.append(self.fetch_wikidata_aliases(wikidata_id))
                 else:
-                    tasks.append(asyncio.sleep(0))  # Use a placeholder coroutine
+                    tasks.append(asyncio.sleep(0))  # Placeholder
             except Exception as e:
                 logger.error(f"Error processing OpenCage result at index {index}: {e}")
-                tasks.append(asyncio.sleep(0))  # Placeholder coroutine for error cases
+                tasks.append(asyncio.sleep(0))  # Placeholder
 
-        # Fetch all aliases concurrently
         wikidata_aliases_results = await asyncio.gather(*tasks)
 
         for index, result in enumerate(opencage_results):
@@ -88,11 +94,9 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
                 geometry = result.get("geometry", {})
                 wikidata_aliases = wikidata_aliases_results[index]
 
-                # Handle missing fields gracefully
                 def get_component(field):
                     return components.get(field) if field in components else None
 
-                # Create boundingbox list
                 northeast_lat = bounds.get("northeast", {}).get("lat")
                 northeast_lon = bounds.get("northeast", {}).get("lon") or bounds.get("northeast", {}).get("lng")
                 southwest_lat = bounds.get("southwest", {}).get("lat")
@@ -104,12 +108,12 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
                     northeast_lon   # East longitude
                 ])))
 
-                opencage_data.append({
+                extracted_data.append({
                     "index": index,
                     "lat": geometry.get("lat"),
-                    "lon": geometry.get("lng"),  # Renamed 'lng' to 'lon'
+                    "lon": geometry.get("lng"),
                     "DMS_lat": annotations.get("DMS", {}).get("lat"),
-                    "DMS_lon": annotations.get("DMS", {}).get("lng"),  # Renamed 'DMS_lng' to 'DMS_lon'
+                    "DMS_lon": annotations.get("DMS", {}).get("lng"),
                     "OSM_url": annotations.get("OSM", {}).get("url"),
                     "wikidata": annotations.get("wikidata"),
                     "wikidata_aliases": wikidata_aliases,
@@ -125,25 +129,28 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
                         "state": get_component("state"),
                         "state_district": get_component("state_district")
                     },
-                    # Rename 'confidence' to 'importance' and divide by 10
                     "importance": result.get("confidence") / 10 if result.get("confidence") else None,
                 })
             except Exception as e:
                 logger.error(f"Error processing OpenCage result at index {index}: {e}")
-                continue  # Skip this result and proceed to the next
+                continue
 
-        return opencage_data
+        return extracted_data
 
     def extract_nominatim_data(self):
         nominatim_results = self.data.get("Nominatim", [])
-        nominatim_data = []
         
+        if not nominatim_results:
+            logger.warning("Nominatim did not find the place")
+            return [{"message": "did not find place"}]
+
+        nominatim_data = []
         for index, result in enumerate(nominatim_results):
             try:
                 nominatim_data.append({
                     "index": index,
                     "lat": result.get("lat"),
-                    "lon": result.get("lon"),  # Changed 'lng' to 'lon' for consistency
+                    "lon": result.get("lon"),
                     "addresstype": result.get("addresstype"),
                     "name": result.get("name"),
                     "display_name": result.get("display_name"),
@@ -152,29 +159,38 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
                 })
             except Exception as e:
                 logger.error(f"Error processing Nominatim result at index {index}: {e}")
-                continue  # Skip this result and proceed to the next
+                continue
         
         return nominatim_data
 
     def extract_locationiq_data(self):
-        locationiq_results = self.data.get("LocationIQ", [])
+        locationiq_results = self.data.get("LocationIQ", {})
+
+        if not isinstance(locationiq_results, list) or not locationiq_results:
+            logger.warning("LocationIQ did not find the place")
+            return [{"message": "did not find place"}]
+
+        if isinstance(locationiq_results, dict) and "error" in locationiq_results:
+            logger.error(f"LocationIQ error: {locationiq_results['error']}")
+            return []
+
         locationiq_data = []
-        
         for index, result in enumerate(locationiq_results):
             try:
-                locationiq_data.append({
-                    "index": index,
-                    "lat": result.get("lat"),
-                    "lon": result.get("lon"),  # Changed 'lng' to 'lon' for consistency
-                    "boundingbox": result.get("boundingbox"),
-                    "display_name": result.get("display_name"),
-                    "type": result.get("type"),
-                    "importance": result.get("importance"),
-                    "class": result.get("class")
-                })
+                if isinstance(result, dict):
+                    locationiq_data.append({
+                        "index": index,
+                        "lat": result.get("lat"),
+                        "lon": result.get("lon"),
+                        "boundingbox": result.get("boundingbox"),
+                        "display_name": result.get("display_name"),
+                        "type": result.get("type"),
+                        "importance": result.get("importance"),
+                        "class": result.get("class")
+                    })
             except Exception as e:
                 logger.error(f"Error processing LocationIQ result at index {index}: {e}")
-                continue  # Skip this result and proceed to the next
+                continue
         
         return locationiq_data
 
@@ -185,7 +201,6 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
             "LocationIQ": self.extract_locationiq_data()
         }
 
-        # Convert the extracted data to a JSON string with UTF-8 encoding
         return json.dumps(extracted_data, indent=4, ensure_ascii=False)
 
 # # Example usage

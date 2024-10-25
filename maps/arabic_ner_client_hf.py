@@ -1,4 +1,5 @@
 import os
+import time  # Import time module to use sleep for retry
 from dotenv import load_dotenv
 import requests
 
@@ -18,47 +19,56 @@ class ArabicNERClientHF:
             "Content-Type": "application/json"
         }
 
-    def query(self, sentence):
-        # Prepare the payload with the given sentence
+    def query(self, sentence, max_retries=3):
+        """
+        Send a POST request to the Hugging Face API, with retry mechanism for 503 errors.
+        """
         payload = {
             "inputs": sentence,
             "parameters": {
                 "aggregation_strategy": "simple"
             }
         }
-        # Send a POST request to the Hugging Face API
-        response = requests.post(self.api_url, headers=self.headers, json=payload)
 
-        # Try to parse JSON response
-        try:
-            result = response.json()
-            return result
-        except ValueError:
-            # If JSON parsing fails, print the error message and raw response
-            print("Failed to parse JSON response.")
-            print(f"Raw response content: {response.text}")  # Print raw response content
-            return None
+        retries = 0
+        while retries < max_retries:
+            response = requests.post(self.api_url, headers=self.headers, json=payload)
+
+            # Check for 503 Service Unavailable error
+            if response.status_code == 503:
+                print(f"Service unavailable (503). Retrying after 5 seconds... ({retries + 1}/{max_retries})")
+                time.sleep(5)  # Wait for 5 seconds before retrying
+                retries += 1
+            else:
+                # If no 503 error, try to parse the response
+                try:
+                    result = response.json()
+                    return result
+                except ValueError:
+                    print("Failed to parse JSON response.")
+                    print(f"Raw response content: {response.text}")
+                    return None
+        
+        # If retries exceeded and still no success
+        print("Max retries exceeded. Service may still be unavailable.")
+        return None
 
     def get_locations_above_threshold(self, sentence, threshold=0.75):
         """
         This function extracts all locations (LOC) from the model's output
         with a score higher than the specified threshold (default 75%).
         """
-        # Get the response from the API
         result = self.query(sentence)
 
         if not result or not isinstance(result, list):
             print(f"Unexpected response format: {result}")
             return []
 
-        # Extract the entities
         locations = []
 
-        # Ensure we're working with a list of dictionaries
         for entity in result:
             if isinstance(entity, dict) and 'entity_group' in entity and 'score' in entity:
                 if entity['entity_group'] == 'LOC' and entity['score'] > threshold:
-                    # Append the location to the list if score is greater than the threshold
                     locations.append(entity['word'])
             else:
                 print(f"Unexpected entity format: {entity}")

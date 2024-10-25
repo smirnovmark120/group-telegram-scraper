@@ -114,14 +114,16 @@ class GeoDataFilter(metaclass=TimerMeta):
         """
         Return the best result based on average distance and importance:
         1. If the average distance between the highest importance points per service is less than 5 km, 
-           return the OpenCage result with the highest importance.
+        return the OpenCage result with the highest importance.
         2. Otherwise, return the result with the highest importance overall.
+        3. If no valid results are found from any API, return a message indicating that no places were found.
         """
         # Get the highest importance point per service
         highest_importance_results = self.get_highest_importance_per_service()
 
         if not highest_importance_results:
-            return None  # No valid results found
+            # No valid results found from any service
+            return {"message": "None of the APIs found a place."}
 
         # Calculate average distance between all the highest importance points
         coordinates = [(result["lat"], result["lon"]) for result in highest_importance_results if result["lat"] and result["lon"]]
@@ -152,4 +154,4 @@ class GeoDataFilter(metaclass=TimerMeta):
             "lon": best_result["lon"],
             "wikidata_aliases": best_result["wikidata_aliases"],
             "importance": best_result["importance"]
-        } or None  # Return None if no results
+        }
