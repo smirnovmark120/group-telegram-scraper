@@ -68,14 +68,14 @@ class GeocodeDataExtractor(metaclass=TimerMeta):
                 geometry = result.get("geometry", {})
                 wikidata_id = annotations.get("wikidata")
 
-                # Create a task for each wikidata fetch call
+                # If there is a wikidata_id, create a task, otherwise use asyncio.sleep(0) as a placeholder
                 if wikidata_id:
                     tasks.append(self.fetch_wikidata_aliases(wikidata_id))
                 else:
-                    tasks.append(None)
+                    tasks.append(asyncio.sleep(0))  # Use a placeholder coroutine
             except Exception as e:
                 logger.error(f"Error processing OpenCage result at index {index}: {e}")
-                tasks.append(None)
+                tasks.append(asyncio.sleep(0))  # Placeholder coroutine for error cases
 
         # Fetch all aliases concurrently
         wikidata_aliases_results = await asyncio.gather(*tasks)
