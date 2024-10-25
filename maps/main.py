@@ -16,47 +16,52 @@ sentence = """
 
 client = ArabicNERClientHF()
 response = client.get_locations_above_threshold(
-    sentence = sentence,
-    threshold = 0.75
+    sentence=sentence,
+    threshold=0.75
 )
 print(f"Places mentioned in the message: {response}")
 
 # Initialize the geocoder
 geocoder = MultiGeocoder()
 
-# Main processing function
-async def process_places(response):
-    all_filtered_results = []
+# Processing function for a single place
+async def process_place(place):
+    print(f"\nProcessing place: {place}")  # Debug: indicate current place being processed
     
-    for place in response:  # assuming 'response' is a list of place names (NER output)
-        print(f"\nProcessing place: {place}")  # Debug: indicate current place being processed
-        
-        # Get geocoding data for the place
-        all_results = await geocoder.get_all_coordinates(place)        
-        parsed_json_data = json.loads(all_results)
-        
-        # Extract all relevant geocoding data
-        extractor = GeocodeDataExtractor(parsed_json_data)
-        all_data = await extractor.extract_all_data()
-        all_data = json.loads(all_data)
-        
-        # Filter the geocoded data by importance
-        filter_obj = GeoDataFilter(all_data, importance_threshold=0.6)
-        filtered_results = filter_obj.get_coordinates_with_names()
-        
-        # Ensure filtered_results is not None before extending the final list
-        if filtered_results:
-            # Add the NER word (place) to the result dictionary
-            filtered_results["ner_word"] = place  # Attach the NER word to each result
-            print(f"Appending filtered results with NER word: {filtered_results}")  # Debug
-            all_filtered_results.append(filtered_results)  # Append the entire dictionary
-        else:
-            print(f"No significant results found for: {place}")  # Debug: when no significant results
+    # Get geocoding data for the place
+    all_results = await geocoder.get_all_coordinates(place)        
+    parsed_json_data = json.loads(all_results)
     
-    return all_filtered_results
+    # Extract all relevant geocoding data
+    extractor = GeocodeDataExtractor(parsed_json_data)
+    all_data = await extractor.extract_all_data()
+    all_data = json.loads(all_data)
+    
+    # Filter the geocoded data by importance
+    filter_obj = GeoDataFilter(all_data, importance_threshold=0.6)
+    filtered_results = filter_obj.get_coordinates_with_names()
+    
+    # Ensure filtered_results is not None before returning
+    if filtered_results:
+        # Add the NER word (place) to the result dictionary
+        filtered_results["ner_word"] = place  # Attach the NER word to each result
+        print(f"Appending filtered results with NER word: {filtered_results}")  # Debug
+        return filtered_results
+    else:
+        print(f"No significant results found for: {place}")  # Debug: when no significant results
+        return None
+
+# Main function to process all places concurrently
+async def process_places_concurrently(response):
+    # Use asyncio.gather to run all tasks concurrently
+    tasks = [process_place(place) for place in response]
+    results = await asyncio.gather(*tasks)
+    
+    # Filter out None results and return
+    return [result for result in results if result]
 
 # Example usage:
-filtered_results = asyncio.run(process_places(response))
+filtered_results = asyncio.run(process_places_concurrently(response))
 
 # Final check and output: Ensure proper printing of the full dictionaries
 if filtered_results:
